@@ -1,0 +1,89 @@
+
+<div class="login-page surface-ground flex align-items-center justify-content-center min-h-screen min-w-full overflow-hidden">
+  <div class="login-container">
+
+    <div class="login-frame">
+      <div class="login-card surface-card">
+
+        <div class="login-image">
+          Image
+        </div>
+
+        <div class="text-center login-heading">
+          <div class="text-900 text-xl font-medium mb-2">
+            Welcome, Isabel!
+          </div>
+          <span class="text-600 text-sm">
+            Sign in to continue
+          </span>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="funIngresar()">
+
+          <label for="email" class="block text-900 text-sm mb-2">
+            Email
+          </label>
+
+          <input
+            id="email"
+            type="email"
+            pInputText
+            formControlName="email"
+            placeholder="Email address"
+            class="w-full login-input mb-2"
+            autocomplete="username"
+          >
+
+          <small class="p-error block mb-3"
+            *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+            Ingresa un correo electrónico válido.
+          </small>
+
+          <label for="password" class="block text-900 text-sm mb-2">
+            Password
+          </label>
+
+          <div class="login-options">
+            <label class="remember-label">
+              <input type="checkbox">
+              Remember me
+            </label>
+
+            <span class="forgot-label">
+              Forgot password?
+            </span>
+          </div>
+
+          <input
+            id="password"
+            type="password"
+            pInputText
+            formControlName="password"
+            placeholder="Password"
+            class="w-full login-input mb-2"
+            autocomplete="current-password"
+          >
+
+          <small class="p-error block mb-3"
+            *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+            La contraseña debe tener entre 6 y 25 caracteres.
+          </small>
+
+          <small class="p-error block mb-3" *ngIf="mensajeError">
+            {{ mensajeError }}
+          </small>
+
+          <button
+            type="submit"
+            pButton
+            pRipple
+            [label]="enviando ? 'Ingresando...' : 'Sign in'"
+            class="w-full login-button"
+            [disabled]="loginForm.invalid || enviando">
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

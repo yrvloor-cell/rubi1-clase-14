@@ -1,0 +1,36 @@
+PROYECTO RUBI1 - AJUSTES PARA LA CLASE 14
+
+Carpetas:
+- backend: NestJS
+- frontend: Angular 17 + Sakai / PrimeNG
+
+PASO PREVIO:
+1. Abre backend/.env.development.
+2. Confirma que HOST, USERNAME, PASSWORD y DATABASE correspondan a tu PostgreSQL.
+3. PORT=3000 es el servidor NestJS.
+4. PORT_DB=5432 es PostgreSQL.
+
+INICIAR BACKEND:
+Abre una terminal en la carpeta backend y ejecuta:
+  npm install
+  npm run start:dev
+
+INICIAR FRONTEND:
+Abre otra terminal en la carpeta frontend y ejecuta:
+  npm install
+  npm start
+
+Abre en el navegador:
+  http://localhost:4200/auth/login
+
+Después de iniciar sesión, la plantilla de administración se abre en:
+  http://localhost:4200/admin/perfil
+
+IMPORTANTE SOBRE EL LOGIN:
+El backend de este ZIP devuelve un token de prueba para cualquier correo y contraseña que cumplan las validaciones del DTO. Todavía NO comprueba las credenciales contra una tabla de usuarios. Por eso este ajuste reproduce el flujo de clase, pero no debe considerarse autenticación segura ni usarse en producción.
+
+La contraseña debe tener entre 6 y 25 caracteres y el correo debe tener formato válido.
+Las credenciales de PostgreSQL se conservan en .env.development; revísalas antes de ejecutar.
+
+No se incluyen node_modules, dist ni carpetas .git. Se instalan las dependencias con npm install.
+El archivo .env.production contiene valores de ejemplo y debe configurarse antes de cualquier despliegue.
